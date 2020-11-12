@@ -1,0 +1,1 @@
+# Adidas-Main-Carousel-Product-Specs
