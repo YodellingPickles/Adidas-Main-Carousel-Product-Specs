@@ -11,7 +11,7 @@ const MainCarousel = ({ mainDisplay }) => {
   } else {
     return (
       <div>
-        Loading......
+        Loading.....
       </div>
     )
   }
