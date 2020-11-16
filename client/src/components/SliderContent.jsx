@@ -8,6 +8,8 @@ const SliderContent = styled.div`
   width: ${props => props.width}px;
   background-color: rgb(236,238,240);
   display: flex;
+  overflow: hidden;
+  cursor: zoom-in;
 `
 
 export default SliderContent
