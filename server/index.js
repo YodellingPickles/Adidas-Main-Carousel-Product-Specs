@@ -11,12 +11,24 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/shoes', (req, res) => {
   model.getDefaultSet((err, data) => {
-    console.log(data)
     if (err) {
       console.log(err)
-    } else (
-      res.send(data)
-    )
+    } else {
+      const allColors = data.reduce((acc, value) => {
+        if (!acc[value.color]) {
+          return Object.assign(acc, {[value.color]: value.url})
+        } else {
+          return acc;
+        }
+      },{})
+
+      const prettyData = {
+        colorSet: allColors,
+        imgData: data
+      }
+
+      res.send(prettyData)
+    }
   })
 });
 

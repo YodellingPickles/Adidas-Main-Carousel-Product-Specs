@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "bundle": "webpack --watch"
+    "bundle": "webpack --watch",
+    "seed": "mysql -u root -p < /Users/jasperchen/HRSJO2/fec/Adidas-Main-Carousel-Product-Specs/schema.sql"
   },
   "keywords": [],
   "author": "",
