@@ -26,7 +26,6 @@ const NavBarItem = ({ sections, index, isActive }) => {
     letter-spacing: 2px;
     border-bottom: ${isActive? '2px solid black' : 'none'};
     font-family: ${isActive? 'AdihausDIN Cn' : 'Adidas'};
-
   `
   return (
     <NavBarItemCSS>

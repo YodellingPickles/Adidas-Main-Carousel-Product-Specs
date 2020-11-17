@@ -85,9 +85,7 @@ const App = () => {
         </div>}
       </SliderCSS>
       <NavBar />
-      <CarouselCSS>
-        <ProductSpecs specImg={colorSet[Object.keys(colorSet)[0]]}/>
-      </CarouselCSS>
+      <ProductSpecs specImg={colorSet[Object.keys(colorSet)[0]]}/>
     </div>
   );
 };
@@ -109,13 +107,4 @@ const SliderCSS = styled.div`
   margin-bottom: 20px;
 `;
 
-const CarouselCSS = styled.div`
-  position: relative;
-  width: 44%;
-  height: auto;
-  left: 28%;
-  margin-top: 45px;
-  background-color: grey;
-  display: flex;
-`;
 export default App;
