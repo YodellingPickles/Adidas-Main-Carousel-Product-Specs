@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
-import left from '../../../img/left-arrow.js'
-import right from '../../../img/right-arrow.js'
+import left from '../../../../img/left-arrow.js'
+import right from '../../../../img/right-arrow.js'
 
 const Arrow = ({ direction, handleClick }) => {
   const Arrows = styled.div`
     display: flex;
     position: absolute;
-    top: 50%;
+    top: 43%;
     ${direction === 'right' ? `right: 25px` : `left: 25px`};
     height: 50px;
     width: 50px;

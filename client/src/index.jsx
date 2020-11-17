@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import Slider from './components/Slider.jsx'
+import App from './components/App.jsx'
 
 
-ReactDom.render(<Slider />, document.getElementById('app'))
+ReactDom.render(<App />,document.getElementById('app'));

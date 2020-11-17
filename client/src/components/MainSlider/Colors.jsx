@@ -3,18 +3,18 @@ import styled from 'styled-components';
 
 const Colors = ({ colorSet, activeColorIndex, changeColors }) => {
   const ColorsCss = styled.div`
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    font-size: 22px;
-    font-weight: lighter;
   `
   const ColorText = styled.div`
     margin-right: 25px;
     text-align: right;
     align-self: center;
+    font-family: 'AdihausDIN Cn';
   `
   const arrOfColors = Object.keys(colorSet);
-  const ArrOfColorsUrl = Object.values(colorSet)
+  const ArrOfColorsUrl = Object.values(colorSet);
 
   return (
     <ColorsCss>
@@ -30,7 +30,7 @@ const Colors = ({ colorSet, activeColorIndex, changeColors }) => {
 
 const ColorButtons = ({ colorUrl, index, activeColorIndex, changeColors }) => {
   const ColorCss = styled.div`
-    padding: 40px;
+    padding: 30px;
     margin-right: 10px;
     border: 1px solid black;
     cursor: pointer;
@@ -38,7 +38,7 @@ const ColorButtons = ({ colorUrl, index, activeColorIndex, changeColors }) => {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-bottom: ${activeColorIndex ? '5px solid black' : '1px solid black'};
+    border-bottom: ${activeColorIndex ? '3px solid black' : '1px solid black'};
   `
   return (
     <ColorCss onClick={() => changeColors(index)}>

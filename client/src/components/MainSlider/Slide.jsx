@@ -8,7 +8,7 @@ const Slide = (props) => {
     height: 100%;
     width: 100%;
     background-image: url('${props.image.url}');
-    background-size: 1200px;
+    background-size: 1050px;
     background-repeat: no-repeat;
     background-position: center;
     transform: ${zoom ? 'scale(1.5)' : 'scale(1)'};
