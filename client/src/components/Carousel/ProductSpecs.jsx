@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import Recommendations from './Recommendations.jsx'
 
-const ProductSpecs = ({ specImg }) => {
+const ProductSpecs = ({ specImg, productRecs }) => {
   const CarouselCSS = styled.div`
     position: relative;
     width: 44%;
@@ -43,12 +44,13 @@ const ProductSpecs = ({ specImg }) => {
 
   const FullWidthSection = styled.div`
     width: 100%;
-    height: 20vh;
+    height: auto;
     margin-top: 120px;
     display: flex;
     flex-wrap: wrap;
   `
   const SpecItems = styled.div`
+    margin-top: 20px;
     font-family: AdihausDIN;
     width: 50%;
     font-size: 14px;
@@ -92,6 +94,7 @@ const ProductSpecs = ({ specImg }) => {
       </FullWidthSection>
       <FullWidthSection>
         <SectionTitle>COMPLETE THE LOOK</SectionTitle>
+        <Recommendations productRecs={productRecs}/>
       </FullWidthSection>
     </CarouselCSS>
   )

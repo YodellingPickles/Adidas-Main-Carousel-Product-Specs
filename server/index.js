@@ -32,6 +32,16 @@ app.get('/api/shoes', (req, res) => {
   })
 });
 
+app.get('/api/recItems', (req, res) => {
+  model.getRecItems((err, data) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(data)
+    }
+  })
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

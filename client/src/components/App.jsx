@@ -18,8 +18,9 @@ const App = () => {
   const [colorSet, setColors] = useState([]);
   const [activeIndex, setIndex] = useState(0);
   const [activeColorIndex, setColorIndex] = useState(0);
+  const [productRecs, setRecs] = useState([]);
 
-  const getFromDb = (colorIWantToRender) => {
+  const getShoeFromDb = (colorIWantToRender) => {
     axios.get('/api/shoes')
       .then(result => {
         const arrOfColors = Object.keys(result.data.colorSet);
@@ -32,8 +33,17 @@ const App = () => {
       .catch(err => console.log(err));
   }
 
+  const getRecItemsFromDb = (colorIWantToRender) => {
+    axios.get('/api/recItems')
+      .then(result => {
+        setRecs(result.data)
+      })
+      .catch(err => console.log(err));
+  }
+
   useEffect(() => {
-    getFromDb();
+    getShoeFromDb();
+    getRecItemsFromDb();
   }, []);
 
   const nextSlide = () => {
@@ -61,7 +71,7 @@ const App = () => {
     setColorIndex(index);
     setIndex(0);
     setTranslate(0);
-    getFromDb(arrOfColors[index]);
+    getShoeFromDb(arrOfColors[index]);
   };
 
   return (
@@ -85,7 +95,7 @@ const App = () => {
         </div>}
       </SliderCSS>
       <NavBar />
-      <ProductSpecs specImg={colorSet[Object.keys(colorSet)[0]]}/>
+      <ProductSpecs specImg={colorSet[Object.keys(colorSet)[0]]} productRecs={productRecs}/>
     </div>
   );
 };
