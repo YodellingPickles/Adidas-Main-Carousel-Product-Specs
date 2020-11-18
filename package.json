@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js",
-    "bundle": "webpack --watch"
+    "bundle": "webpack --watch",
+    "seed": "mysql -u root -p < /Users/jasperchen/HRSJO2/fec/Adidas-Main-Carousel-Product-Specs/schema.sql"
   },
   "keywords": [],
   "author": "",
@@ -16,13 +17,18 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.12.1",
-    "babel-loader": "^8.1.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
