@@ -42,6 +42,16 @@ app.get('/api/recItems', (req, res) => {
   })
 });
 
+app.get('/api/CarouselItem', (req, res) => {
+  model.getCarouselItems((err, data) => {
+    if (err) {
+      console.log(err)
+    } else {
+      res.send(data)
+    }
+  })
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

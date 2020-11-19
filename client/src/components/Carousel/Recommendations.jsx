@@ -26,17 +26,22 @@ const RecommendationsItems = ({ item }) => {
     background-color: rgb(236,238,240);
     font-size: 12px;
     position: relative;
-  `
+  `;
+
+  const RecDesc = styled.div`
+    margin-left: 10px;
+    margin-top: 10px;
+  `;
 
   return (
     <RecItems>
       <img class='magnifyGlass' src={magnify} onClick={()=>setIsOpen(true)}></img>
       <Modal isOpen={isOpen} onClose={()=>setIsOpen(false)} item={item}/>
       <img class={'recImg'} src={item.url}></img>
-      <div class='recDesc'>
+      <RecDesc>
         <div style={{'margin-bottom': '5px'}}>{item.name}</div>
         <div>{item.price}</div>
-      </div>
+      </RecDesc>
     </RecItems>
   )
 }

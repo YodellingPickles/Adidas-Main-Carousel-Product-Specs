@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import ReactDom from 'react-dom'
+import React, { useState } from 'react';
+import ReactDom from 'react-dom';
 import styled from 'styled-components';
 
 const Modal = ({ isOpen, onClose, item }) => {
-  if(!isOpen) return null
-  const [hoverDetail, setHoverDetail] = useState(false)
+  if(!isOpen) return null;
+  const [hoverDetail, setHoverDetail] = useState(false);
+  const [isClicked, setClick] = useState(null);
   const Overlay = styled.div`
     position: fixed;
     top: 0;
@@ -14,6 +15,7 @@ const Modal = ({ isOpen, onClose, item }) => {
     background-color: rgba(0, 0, 0, .7);
     z-index: 1000;
   `;
+
   const Modal = styled.div`
     position: fixed;
     top: 50%;
@@ -59,10 +61,6 @@ const Modal = ({ isOpen, onClose, item }) => {
     font-size: 14px;
     letter-spacing: 2px;
   `;
-  
-  const Test = styled.div`
-    position: relative;
-  `
 
   const Exit = styled.div`
     width: 7%;
@@ -77,6 +75,14 @@ const Modal = ({ isOpen, onClose, item }) => {
     align-items: center;
   `
 
+  const setClickIndex = (index) => {
+    if(index === isClicked) {
+      setClick(null)
+    } else {
+      setClick(index)
+    }
+  }
+
   return ReactDom.createPortal(
     <>
       <Overlay>
@@ -89,7 +95,7 @@ const Modal = ({ isOpen, onClose, item }) => {
             <MoreDetails />
             <Sizing>
               <SizingHeader>Select size</SizingHeader>
-              {item.size.split(',').map(size => <SizingButtons size={size}/>)}
+              {item.size.split(',').map((size, index) => <SizingButtons size={size} clicked={isClicked === index} setClickIndex={setClickIndex} index={index}/>)}
             </Sizing>
             <AddToBagButton>
               <div style={{'margin-left': '15px'}}>ADD TO BAG</div>
@@ -103,9 +109,8 @@ const Modal = ({ isOpen, onClose, item }) => {
   )
 }
 
-const SizingButtons = ({ size }) => {
+const SizingButtons = ({ size, clicked, index, setClickIndex }) => {
   const [isHovered, setHover] = useState(false);
-  const [isClicked, setClick] = useState(false);
   const SizeButtons = styled.div`
     width: 32.6%;
     height: 2.5rem;
@@ -114,11 +119,11 @@ const SizingButtons = ({ size }) => {
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    color: ${isHovered || isClicked ? 'white' : 'black'};
-    background-color: ${isHovered || isClicked ? 'black' : 'white'};
+    color: ${isHovered || clicked ? 'white' : 'black'};
+    background-color: ${isHovered || clicked ? 'black' : 'white'};
   `
   return (
-    <SizeButtons onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} onClick={()=>setClick(!isClicked)}>
+    <SizeButtons onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} onClick={()=>setClickIndex(index)}>
       {size}
     </SizeButtons>
   )
