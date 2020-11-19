@@ -1,8 +1,9 @@
 const db = require('./index.js');
 
 const getDefaultSet = (callback) => {
-  const string = 'SELECT * FROM Shoes'
-  db.query(string, (err, data) => {
+  const string = 'SELECT url, color FROM Shoes WHERE productId = ?'
+  const arg = ['FV1733']
+  db.query(string, arg,(err, data) => {
     if (err) {
       callback(err)
     } else (
@@ -22,8 +23,21 @@ const getRecItems = (callback) => {
   })
 }
 
+const getCarouselItems = (callback) => {
+  const string = 'SELECT url, name, price FROM Shoes WHERE productId != ? ORDER BY RAND()'
+  const arg = ['FV1733']
+  db.query(string, arg,(err, data) => {
+    if (err) {
+      callback(err)
+    } else (
+      callback(null, data)
+    )
+  })
+}
+
 
 module.exports = {
   getDefaultSet,
-  getRecItems
+  getRecItems,
+  getCarouselItems
 }

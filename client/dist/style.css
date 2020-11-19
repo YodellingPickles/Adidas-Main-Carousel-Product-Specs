@@ -30,11 +30,6 @@
   max-height:auto;
 }
 
-.recDesc{
-  margin-left: 10px;
-  margin-top: 10px;
-}
-
 .magnifyGlass{
   width:10%;
   position: absolute;
@@ -43,4 +38,33 @@
   cursor: pointer;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
+.sticky + .content {
+  padding-top: 60px;
+}
+
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+
+#highlights {
+  scroll-margin-top: 120px;
+}
+
+#description {
+  scroll-margin-top: 150px;
+}
+
+#details {
+  scroll-margin-top: 120px;
+}
+
+#completeLook {
+  scroll-margin-top: 120px;
+}

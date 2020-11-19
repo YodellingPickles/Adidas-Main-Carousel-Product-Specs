@@ -9,6 +9,8 @@ CREATE TABLE Shoes (
   url varchar(255) NOT NULL,
   color varchar(255) NOT NULL,
   productId varchar(255) NOT NULL,
+  name varchar(255) NOT NULL,
+  price varchar(255) NOT NULL,
   PRIMARY KEY(ID)
 );
 
@@ -53,25 +55,39 @@ CREATE TABLE Accessories (
 );
 
 -- GREY SHOES
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/e1b02183615f4f559c6cab65011a4ea0_9366/NMD_R1_Shoes_Grey_FV1733_01_standard.jpg', 'grey', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/ae137586e7414ce29c3dab88014f8291_9366/NMD_R1_Shoes_Grey_FV1733_010_hover_standard.jpg', 'grey', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/03c1ae23712643d58115ab65011a5cdf_9366/NMD_R1_Shoes_Grey_FV1733_02_standard.jpg', 'grey', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/9ce44ab246c44d799274ab65011a6413_9366/NMD_R1_Shoes_Grey_FV1733_03_standard.jpg', 'grey', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/20f4fd77c651428bafaeab65011a6b2b_9366/NMD_R1_Shoes_Grey_FV1733_04_standard.jpg', 'grey', 'FV1733');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/e1b02183615f4f559c6cab65011a4ea0_9366/NMD_R1_Shoes_Grey_FV1733_01_standard.jpg', 'grey', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/ae137586e7414ce29c3dab88014f8291_9366/NMD_R1_Shoes_Grey_FV1733_010_hover_standard.jpg', 'grey', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/03c1ae23712643d58115ab65011a5cdf_9366/NMD_R1_Shoes_Grey_FV1733_02_standard.jpg', 'grey', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/9ce44ab246c44d799274ab65011a6413_9366/NMD_R1_Shoes_Grey_FV1733_03_standard.jpg', 'grey', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/20f4fd77c651428bafaeab65011a6b2b_9366/NMD_R1_Shoes_Grey_FV1733_04_standard.jpg', 'grey', 'FV1733', 'NMD_R1 SHOES', '$140');
 
 -- RED SHOES
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/73101ab9d9ee445db281ab57011a0229_9366/NMD_R1_Shoes_Blue_FV1734_01_standard.jpg', 'red', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/93a4bcc32f2e4be889dfab6700ec361a_9366/NMD_R1_Shoes_Blue_FV1734_010_hover_standard.jpg', 'red', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/784ad9f9a7cc420f9e42ab57011a0490_9366/NMD_R1_Shoes_Blue_FV1734_02_standard.jpg', 'red', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/cc0d2945469644809ea0ab57011a0624_9366/NMD_R1_Shoes_Blue_FV1734_03_standard.jpg', 'red', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/9f7710819c5741f9a21cab57011a0738_9366/NMD_R1_Shoes_Blue_FV1734_04_standard.jpg', 'red', 'FV1733');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/73101ab9d9ee445db281ab57011a0229_9366/NMD_R1_Shoes_Blue_FV1734_01_standard.jpg', 'red', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/93a4bcc32f2e4be889dfab6700ec361a_9366/NMD_R1_Shoes_Blue_FV1734_010_hover_standard.jpg', 'red', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/784ad9f9a7cc420f9e42ab57011a0490_9366/NMD_R1_Shoes_Blue_FV1734_02_standard.jpg', 'red', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/cc0d2945469644809ea0ab57011a0624_9366/NMD_R1_Shoes_Blue_FV1734_03_standard.jpg', 'red', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/9f7710819c5741f9a21cab57011a0738_9366/NMD_R1_Shoes_Blue_FV1734_04_standard.jpg', 'red', 'FV1733', 'NMD_R1 SHOES', '$140');
 
 -- BLACK SHOE
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/7967fa1a9cb742d8a437ab6501290681_9366/NMD_R1_Shoes_Black_FV8732_01_standard.jpg', 'black', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/cbc46e26b72348de96b9ab6700ec7151_9366/NMD_R1_Shoes_Black_FV8732_010_hover_standard.jpg', 'black', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/159c3a98d97c4450befaab6501291547_9366/NMD_R1_Shoes_Black_FV8732_02_standard.jpg', 'black', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/a34cea7a8a2a428c866aab6501291b52_9366/NMD_R1_Shoes_Black_FV8732_03_standard.jpg', 'black', 'FV1733');
-Insert into Shoes (url, color, productId) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/efaca33fa4c64993af53ab65012921db_9366/NMD_R1_Shoes_Black_FV8732_04_standard.jpg', 'black', 'FV1733');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/7967fa1a9cb742d8a437ab6501290681_9366/NMD_R1_Shoes_Black_FV8732_01_standard.jpg', 'black', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/cbc46e26b72348de96b9ab6700ec7151_9366/NMD_R1_Shoes_Black_FV8732_010_hover_standard.jpg', 'black', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/159c3a98d97c4450befaab6501291547_9366/NMD_R1_Shoes_Black_FV8732_02_standard.jpg', 'black', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/a34cea7a8a2a428c866aab6501291b52_9366/NMD_R1_Shoes_Black_FV8732_03_standard.jpg', 'black', 'FV1733', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/h_2000,f_auto,q_auto:sensitive,fl_lossy/efaca33fa4c64993af53ab65012921db_9366/NMD_R1_Shoes_Black_FV8732_04_standard.jpg', 'black', 'FV1733', 'NMD_R1 SHOES', '$140');
+
+-- RandomShoes
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/ac94b726893644aebfb9aaf001138d0f_9366/FV9015_00_plp_standard.jpg', 'black', 'shoe1', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/de7d57ddae474f139736a8ba00fcbfb8_9366/B42200_00_plp_standard.jpg', 'black', 'shoe2', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/8171ca50b72c487f9289abd601371d4c_9366/FV9153_00_plp_standard.jpg', 'red', 'shoe3', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/9113aac9752b4da6ab79ab65013fb8c5_9366/FV8732_00_plp_standard.jpg', 'red', 'shoe4', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/801e88f5897a411a9e77a8ba0101c79a_9366/D96635_00_plp_standard.jpg', 'white', 'shoe5', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/b15e40665c434221be6cab090128b086_9366/FV9017_00_plp_standard.jpg', 'red', 'shoe6', 'NMD_R1 SHOES', '$140');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/06d42ae3ea464c5d8ccaabd60136cd42_9366/FV9152_00_plp_standard.jpg', 'grey', 'shoe7', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/019ff327ccf3414caa5dabd100fd695a_9366/FV1737_00_plp_standard.jpg', 'grey', 'shoe8', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/cc436225af89462091c0ab65014037b3_9366/FW4365_00_plp_standard.jpg', 'black', 'shoe9', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/a51f626a3c194ed88a5dabd100fd7d21_9366/FV1738_00_plp_standard.jpg', 'black', 'shoe10', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/8b534fd471e1466289a3abd60117e45f_9366/FV1740_00_plp_standard.jpg', 'red', 'shoe11', 'NMD_R1 SHOES', '$112');
+Insert into Shoes (url, color, productId, name, price) VALUE ('https://assets.adidas.com/images/w_276,h_276,f_auto,q_auto:sensitive,fl_lossy/cd6540b804ab491ca66cabeb00827881_9366/FY5922_00_plp_standard.jpg', 'black', 'shoe12', 'NMD_R1 SHOES', '$112');
 
 -- Shirts
 Insert into Shirts (url, name, price, size, productId) VALUE ('https://assets.adidas.com/images/w_320,h_320,f_auto,q_auto:sensitive,fl_lossy/b1755add2634427883c0aac400c928d2_9366/FM3311_000_plp_model.jpg', 'TREFOIL TEE', '$30', '2XS,XS,S,M', 'shirt1');

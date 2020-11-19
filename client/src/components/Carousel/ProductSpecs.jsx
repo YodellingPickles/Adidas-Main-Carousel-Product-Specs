@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import Recommendations from './Recommendations.jsx'
+import Carousel from './Carousel.jsx'
+import CarouselArrows from './CarouselArrows.jsx'
+import Bars from './ActiveBar.jsx'
 
-const ProductSpecs = ({ specImg, productRecs }) => {
+const ProductSpecs = ({ specImg, productRecs, productCarousel }) => {
+  const getWidth = () => document.getElementById("vw").offsetWidth;
+  const [carouselIndex, setCarouselIndex] = useState(0)
+  const [translate, setTranslate] = useState(0);
+  const [transition, setTransition] = useState(1);
+
   const CarouselCSS = styled.div`
     position: relative;
     width: 44%;
@@ -13,7 +21,7 @@ const ProductSpecs = ({ specImg, productRecs }) => {
     flex-wrap: wrap;
     justify-content: space-between;
     `;
-    // background-color: grey;
+
   const SectionTitle = styled.div`
     font-family: adineue PRO KZ Bold;
     font-size: 30px;
@@ -48,7 +56,18 @@ const ProductSpecs = ({ specImg, productRecs }) => {
     margin-top: 120px;
     display: flex;
     flex-wrap: wrap;
+   `;
+
+    const CarouselDiv = styled.div`
+    width: 100%;
+    height: 25vh;
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
   `
+
   const SpecItems = styled.div`
     margin-top: 20px;
     font-family: AdihausDIN;
@@ -57,11 +76,31 @@ const ProductSpecs = ({ specImg, productRecs }) => {
     &:before {
       content: "• ";
     }
-  `
+  `;
+
+  const prevCarousel = () => {
+    if (carouselIndex === 0) {
+      setTranslate(((productCarousel.length/4) - 1) * getWidth());
+      setCarouselIndex((productCarousel.length/4) - 1);
+    } else {
+      setTranslate((carouselIndex - 1) * getWidth());
+      setCarouselIndex(carouselIndex - 1);
+    }
+  }
+
+  const nextCarousel = () => {
+    if (carouselIndex === (productCarousel.length/4) - 1) {
+      setTranslate(0);
+      setCarouselIndex(0);
+    } else {
+      setTranslate((carouselIndex + 1) * getWidth());
+      setCarouselIndex(carouselIndex + 1);
+    }
+  }
 
   return (
     <CarouselCSS>
-      <Section>
+        <Section id='highlights'>
         <SectionTitle>HIGHLIGHTS</SectionTitle>
         <SectionSubTitle>HUGS THE FOOT</SectionSubTitle>
         <SectionDescription>The snug, stretchy fit offers a comfortable, supportive feel.</SectionDescription>
@@ -71,7 +110,7 @@ const ProductSpecs = ({ specImg, productRecs }) => {
         <SectionSubTitle>ENDLESS ENERGY</SectionSubTitle>
         <SectionDescription>Boost is our most responsive cushioning ever, delivering incredible energy return: The more energy you give, the more you get.</SectionDescription>
       </Section>
-      <Section>
+      <Section id='description'>
         <SectionTitle>NMD_R1 SHOES</SectionTitle>
         <SectionSubTitle>LIGHTWEIGHT SHOES WITH ENHANCED CUSHIONING.</SectionSubTitle>
         <SectionDescription>There's a lot to do in one day. Think about it. This second. What's on your agenda? Exactly. So if you're going to do all that, you might as well be comfortable, which just happens to be what these adidas NMD_R1 Shoes are designed for. Riding on some of the best of adidas technologies, they support your every move.</SectionDescription>
@@ -79,7 +118,7 @@ const ProductSpecs = ({ specImg, productRecs }) => {
       <Section>
         <img class={'onlyimg'} src={specImg}></img>
       </Section>
-      <FullWidthSection>
+      <FullWidthSection id='details'>
         <SectionTitle>SPECIFICATIONS</SectionTitle>
         <SpecItems>Snug fit</SpecItems>
         <SpecItems>Rubber outsole</SpecItems>
@@ -92,12 +131,26 @@ const ProductSpecs = ({ specImg, productRecs }) => {
         <SpecItems>Iconic street shoes</SpecItems>
         <SpecItems>Product code: FV1733</SpecItems>
       </FullWidthSection>
-      <FullWidthSection>
+      <FullWidthSection id='completeLook'>
         <SectionTitle>COMPLETE THE LOOK</SectionTitle>
         <Recommendations productRecs={productRecs}/>
       </FullWidthSection>
+        <SectionTitle style={{'margin-top': '120px'}}>YOU MAY ALSO LIKE</SectionTitle>
+      <CarouselDiv id='vw'>
+        {document.getElementById("vw") ?
+          <Carousel productCarousel={productCarousel} width={getWidth() * (productCarousel.length/4)} transition={transition} translate={translate}/> :
+          'loading....'}
+          <CarouselArrows direction={'left'} handleClick={prevCarousel} />
+          <CarouselArrows direction={'right'} handleClick={nextCarousel} />
+          <Bars pages={Array(productCarousel.length/4).fill(0)} carouselIndex={carouselIndex}/>
+      </CarouselDiv>
+      <Test>
+      </Test>
     </CarouselCSS>
   )
 }
 export default ProductSpecs
 
+const Test = styled.div`
+height: 80vh;
+`

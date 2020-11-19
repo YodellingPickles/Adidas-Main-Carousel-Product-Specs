@@ -13,12 +13,13 @@ import ProductSpecs from './Carousel/ProductSpecs.jsx';
 const App = () => {
   const getWidth = () => window.innerWidth;
   const [translate, setTranslate] = useState(0);
-  const [transition, setTransition] = useState(0.45);
+  const [transition, setTransition] = useState(.8);
   const [displaySet, setDisplay] = useState([]);
   const [colorSet, setColors] = useState([]);
   const [activeIndex, setIndex] = useState(0);
   const [activeColorIndex, setColorIndex] = useState(0);
   const [productRecs, setRecs] = useState([]);
+  const [productCarousel, setCarousel] = useState([]);
 
   const getShoeFromDb = (colorIWantToRender) => {
     axios.get('/api/shoes')
@@ -33,7 +34,7 @@ const App = () => {
       .catch(err => console.log(err));
   }
 
-  const getRecItemsFromDb = (colorIWantToRender) => {
+  const getRecItemsFromDb = () => {
     axios.get('/api/recItems')
       .then(result => {
         setRecs(result.data)
@@ -41,9 +42,18 @@ const App = () => {
       .catch(err => console.log(err));
   }
 
+  const getCarouselItem = () => {
+    axios.get('/api/CarouselItem')
+      .then(result => {
+        setCarousel(result.data)
+      })
+      .catch(err => console.log(err));
+  }
+
   useEffect(() => {
     getShoeFromDb();
     getRecItemsFromDb();
+    getCarouselItem();
   }, []);
 
   const nextSlide = () => {
@@ -58,7 +68,7 @@ const App = () => {
 
   const prevSlide = () => {
     if (activeIndex === 0) {
-      setTranslate(displaySet.length - 1 * getWidth());
+      setTranslate((displaySet.length - 1) * getWidth());
       setIndex(displaySet.length - 1);
     } else {
       setTranslate((activeIndex - 1) * getWidth());
@@ -82,6 +92,7 @@ const App = () => {
           translate={translate}
           transition={transition}
           width={getWidth() * displaySet.length}
+          id='gallery'
         >
           {displaySet.map((image) => (
             <Slide image={image} />
@@ -95,7 +106,7 @@ const App = () => {
         </div>}
       </SliderCSS>
       <NavBar />
-      <ProductSpecs specImg={colorSet[Object.keys(colorSet)[0]]} productRecs={productRecs}/>
+      <ProductSpecs specImg={colorSet[Object.keys(colorSet)[0]]} productRecs={productRecs} productCarousel={productCarousel}/>
     </div>
   );
 };
