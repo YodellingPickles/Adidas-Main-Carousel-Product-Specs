@@ -12,7 +12,8 @@ const Dot = ({ img, active }) => {
     background-repeat: no-repeat;
     background-position: center;
     border-bottom: ${active ? '3px solid black' : '1px solid black'};
-  `
+  `;
+
   return (
     <DotCss>
     </DotCss>
@@ -21,21 +22,21 @@ const Dot = ({ img, active }) => {
 
 const Dots = ({ slides, activeIndex }) => {
   const DotsCss = styled.div`
-    position: absolute;
-    top: 84%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `
+  position: absolute;
+  top: 84%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  `;
 
   return (
     <DotsCss>
       {slides.map((slide, i) => (
         <Dot key={slide} active={activeIndex === i} img={slide.url}/>
-      ))}
+        ))}
     </DotsCss>
   )
 }
 
-export default Dots
+export default Dots;

@@ -16,7 +16,6 @@ const Carousel = ({ productCarousel, width, translate, transition }) => {
     justify-content: space-around;
   `;
 
-
   return (
     <CarouselItemSection>
       {productCarousel.map((item, index) => <CarouselItems item={item} index={index}/>)}
@@ -33,16 +32,18 @@ const CarouselItems = ({ item, index }) => {
     background-color: white;
     font-size: 12px;
     position: relative;
-  `
+  `;
+
   const ItemDesc = styled.div`
     margin-left: 10px;
     margin-top: 10px;
-  `
+  `;
 
   const ShoeFamily = styled.div`
     color: rgb(168,168,169);
     margin-bottom: 10px;
-  `
+  `;
+
   const Heart = styled.img`
     font-size: 20px;
     width:10%;
@@ -50,7 +51,8 @@ const CarouselItems = ({ item, index }) => {
     right: 8%;
     top: 6%;
     cursor: pointer;
-  `
+  `;
+
   return (
     <CarouselItems>
       <img class={'recImg'} src={item.url}></img>
@@ -64,4 +66,4 @@ const CarouselItems = ({ item, index }) => {
   )
 }
 
-export default Carousel
+export default Carousel;

@@ -36,4 +36,4 @@ const Bars = ({ pages, carouselIndex }) => {
   )
 }
 
-export default Bars
+export default Bars;

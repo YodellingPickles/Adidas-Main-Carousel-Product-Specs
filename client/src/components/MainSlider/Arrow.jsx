@@ -26,7 +26,8 @@ const Arrow = ({ direction, handleClick }) => {
         outline: 0;
       }
     }
-  `
+  `;
+
   return (
     <Arrows onClick={handleClick}>
       {direction === 'right' ? <img style ={{width:'45%'}} src={right}/> : <img style ={{width:'45%'}} src={left}/>}
@@ -34,4 +35,4 @@ const Arrow = ({ direction, handleClick }) => {
   )
 }
 
-export default Arrow
+export default Arrow;
