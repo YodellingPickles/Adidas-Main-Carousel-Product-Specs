@@ -9,7 +9,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/api/shoes', (req, res) => {
+app.get('/api/shoeProduct', (req, res) => {
+  res.send('hello world')
+})
+
+app.get('/api/products/shoes', (req, res) => {
   model.getDefaultSet((err, data) => {
     if (err) {
       console.log(err)
@@ -32,7 +36,7 @@ app.get('/api/shoes', (req, res) => {
   })
 });
 
-app.get('/api/recItems', (req, res) => {
+app.get('/api/products/recItems', (req, res) => {
   model.getRecItems((err, data) => {
     if (err) {
       console.log(err)
@@ -42,7 +46,7 @@ app.get('/api/recItems', (req, res) => {
   })
 });
 
-app.get('/api/CarouselItem', (req, res) => {
+app.get('/api/products/CarouselItem', (req, res) => {
   model.getCarouselItems((err, data) => {
     if (err) {
       console.log(err)

@@ -73,9 +73,9 @@ const NavBar = (props) => {
 const NavBarItem = ({ sections, index, isActive, link, changeActiveNav}) => {
   const NavBarItemCSS = styled.span`
     padding: 20px 12px 20px 12px;
-    letter-spacing: 2px;
     border-bottom: ${isActive? '2px solid black' : 'none'};
-    font-family: ${isActive? 'AdihausDIN Cn' : 'Adidas'};
+    font-family: ${isActive? 'AdihausDIN Cn' : 'AdihausDIN'};
+    font-size: ${isActive? '19px' : '16px'}
   `
 
   return (

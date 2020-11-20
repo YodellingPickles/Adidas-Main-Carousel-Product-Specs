@@ -22,7 +22,7 @@ const RecommendationsItems = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
   const RecItems = styled.div`
     width: 24%;
-    height: 22vh;
+    height: 110%;
     font-family: AdihausDIN;
     background-color: rgb(236,238,240);
     font-size: 12px;
