@@ -11,72 +11,6 @@ const ProductSpecs = ({ specImg, productRecs, productCarousel }) => {
   const [translate, setTranslate] = useState(0);
   const [transition, setTransition] = useState(1);
 
-  const CarouselCSS = styled.div`
-    position: relative;
-    width: 44%;
-    height: auto;
-    left: 28%;
-    margin-top: 45px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    `;
-
-  const SectionTitle = styled.div`
-    font-family: adineue PRO KZ Bold;
-    font-size: 30px;
-    width: 100%;
-  `;
-
-  const SectionTitleNoText = styled(SectionTitle)`
-    margin-bottom: 46px
-  `
-
-  const SectionSubTitle = styled.div`
-    font-family: adineue PRO KZ Bold;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  `;
-
-  const SectionDescription = styled.div`
-    font-family: AdihausDIN;
-    font-size: 16px;
-  `;
-
-  const Section = styled.div`
-    width: 47%;
-    height: 27vh;
-    position: relative;
-  `;
-
-  const FullWidthSection = styled.div`
-    width: 100%;
-    height: auto;
-    margin-top: 120px;
-    display: flex;
-    flex-wrap: wrap;
-   `;
-
-    const CarouselDiv = styled.div`
-    width: 100%;
-    height: 25vh;
-    margin-top: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    overflow: hidden;
-  `
-
-  const SpecItems = styled.div`
-    margin-top: 20px;
-    font-family: AdihausDIN;
-    width: 50%;
-    font-size: 14px;
-    &:before {
-      content: "• ";
-    }
-  `;
 
   const prevCarousel = () => {
     if (carouselIndex === 0) {
@@ -149,8 +83,75 @@ const ProductSpecs = ({ specImg, productRecs, productCarousel }) => {
     </CarouselCSS>
   )
 }
-export default ProductSpecs
+
+export default ProductSpecs;
 
 const Test = styled.div`
-height: 80vh;
+  height: 80vh;
+`;
+const CarouselCSS = styled.div`
+  position: relative;
+  width: 44%;
+  height: auto;
+  left: 28%;
+  margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  `;
+
+const SectionTitle = styled.div`
+  font-family: adineue PRO KZ Bold;
+  font-size: 30px;
+  width: 100%;
+`;
+
+const SectionTitleNoText = styled(SectionTitle)`
+  margin-bottom: 46px
+`;
+
+const SectionSubTitle = styled.div`
+  font-family: adineue PRO KZ Bold;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+const SectionDescription = styled.div`
+  font-family: AdihausDIN;
+  font-size: 16px;
+`;
+
+const Section = styled.div`
+  width: 47%;
+  height: 27vh;
+  position: relative;
+`;
+
+const FullWidthSection = styled.div`
+  width: 100%;
+  height: auto;
+  margin-top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+ `;
+
+  const CarouselDiv = styled.div`
+  width: 100%;
+  height: 25vh;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
 `
+
+const SpecItems = styled.div`
+  margin-top: 20px;
+  font-family: AdihausDIN;
+  width: 50%;
+  font-size: 14px;
+  &:before {
+    content: "• ";
+  }
+`;

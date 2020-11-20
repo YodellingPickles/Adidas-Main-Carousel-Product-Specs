@@ -15,7 +15,7 @@ const CarouselArrows = ({ direction, handleClick }) => {
     background: white;
     cursor: pointer;
     align-items: center;
-  `
+  `;
   return (
     <CarouselArrowDiv onClick={handleClick}>
       {direction === 'right' ? <img style ={{width:'55%'}} src={right}/> : <img style ={{width:'55%'}} src={left}/>}
@@ -23,4 +23,4 @@ const CarouselArrows = ({ direction, handleClick }) => {
   )
 }
 
-export default CarouselArrows
+export default CarouselArrows;

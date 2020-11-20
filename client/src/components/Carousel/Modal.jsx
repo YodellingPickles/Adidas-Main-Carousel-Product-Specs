@@ -14,6 +14,8 @@ const Modal = ({ isOpen, onClose, item }) => {
     bottom: 0;
     background-color: rgba(0, 0, 0, .7);
     z-index: 1000;
+    ${!isClicked ? 'animation-name: modalFade' : 'width:100%'};
+    ${!isClicked ? 'animation-duration: .6s' : 'width:100%'};
   `;
 
   const Modal = styled.div`
@@ -24,6 +26,8 @@ const Modal = ({ isOpen, onClose, item }) => {
     background-color: #FFF;
     z-index: 1000;
     border: 1.7px solid black;
+    ${!isClicked ? 'animation-name: modalFade' : 'width:100%'};
+    ${!isClicked ? 'animation-duration: .6s' : 'width:100%'};
   `;
 
   const ModalDescription = styled.div`
@@ -73,7 +77,7 @@ const Modal = ({ isOpen, onClose, item }) => {
     display:flex;
     justify-content: center;
     align-items: center;
-  `
+  `;
 
   const setClickIndex = (index) => {
     if(index === isClicked) {
@@ -81,12 +85,12 @@ const Modal = ({ isOpen, onClose, item }) => {
     } else {
       setClick(index)
     }
-  }
+  };
 
   return ReactDom.createPortal(
     <>
       <Overlay>
-        <Modal>
+        <Modal id='modalOverlay'>
           <Exit onClick={onClose}>&#x2715;</Exit>
           <img src={item.url}></img>
           <ModalDescription>
@@ -121,7 +125,8 @@ const SizingButtons = ({ size, clicked, index, setClickIndex }) => {
     font-size: 14px;
     color: ${isHovered || clicked ? 'white' : 'black'};
     background-color: ${isHovered || clicked ? 'black' : 'white'};
-  `
+  `;
+
   return (
     <SizeButtons onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} onClick={()=>setClickIndex(index)}>
       {size}
@@ -130,7 +135,7 @@ const SizingButtons = ({ size, clicked, index, setClickIndex }) => {
 }
 
 const MoreDetails = () => {
-  const [hoverDetail, setHoverDetail] = useState(false)
+  const [hoverDetail, setHoverDetail] = useState(false);
   const MoreDetails = styled.div`
     margin-top: 20px;
     margin-bottom: 20px;
@@ -143,6 +148,7 @@ const MoreDetails = () => {
     background-color: ${hoverDetail ? 'black' : 'white'};
     color: ${hoverDetail ? 'white' : 'black'};
   `;
+
   return (
     <MoreDetails onMouseEnter={()=>setHoverDetail(true)} onMouseLeave={()=>setHoverDetail(false)}>
       MORE DETAILS
@@ -150,5 +156,5 @@ const MoreDetails = () => {
   )
 }
 
-export default Modal
+export default Modal;
 

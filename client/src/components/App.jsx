@@ -110,6 +110,9 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
+
 const ImageNav = styled.img`
   position: absolute;
   z-index: 10;
@@ -128,4 +131,3 @@ const SliderCSS = styled.div`
   margin-bottom: 20px;
 `;
 
-export default App;

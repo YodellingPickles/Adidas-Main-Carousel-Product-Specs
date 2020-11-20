@@ -6,13 +6,15 @@ const Colors = ({ colorSet, activeColorIndex, changeColors }) => {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-  `
+  `;
+
   const ColorText = styled.div`
     margin-right: 25px;
     text-align: right;
     align-self: center;
     font-family: 'AdihausDIN Cn';
-  `
+  `;
+
   const arrOfColors = Object.keys(colorSet);
   const ArrOfColorsUrl = Object.values(colorSet);
 
@@ -39,11 +41,12 @@ const ColorButtons = ({ colorUrl, index, activeColorIndex, changeColors }) => {
     background-repeat: no-repeat;
     background-position: center;
     border-bottom: ${activeColorIndex ? '3px solid black' : '1px solid black'};
-  `
+  `;
+
   return (
     <ColorCss onClick={() => changeColors(index)}>
     </ColorCss>
   )
 }
 
-export default Colors
+export default Colors;

@@ -10,7 +10,7 @@ const NavBar = (props) => {
       console.log('clean-up!')
       window.removeEventListener('scroll', onScroll)
     };
-  })
+  });
 
   const onScroll = (e) => {
     const navbar = document.getElementById("navbar");
@@ -25,23 +25,22 @@ const NavBar = (props) => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
       });
     });
-    console.log(document.getElementById("highlights").getBoundingClientRect())
-    if (document.getElementById("completeLook").getBoundingClientRect().top < 0) {
-      setActiveNav(5)
-    } else if (document.getElementById("details").getBoundingClientRect().top < 0) {
-      setActiveNav(3)
-    } else if (document.getElementById("description").getBoundingClientRect().top < 0) {
-      setActiveNav(2)
-    } else if (document.getElementById("highlights").getBoundingClientRect().top < 0) {
-      setActiveNav(1)
-    } else if (document.getElementById("gallery").getBoundingClientRect().top < 0) {
-      setActiveNav(0)
+
+    if (document.getElementById("completeLook").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+      setActiveNav(5);
+    } else if (document.getElementById("details").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+      setActiveNav(3);
+    } else if (document.getElementById("description").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+      setActiveNav(2);
+    } else if (document.getElementById("highlights").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+      setActiveNav(1);
+    } else if (document.getElementById("gallery").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+      setActiveNav(0);
     }
   }
 
@@ -52,13 +51,15 @@ const NavBar = (props) => {
     justify-content: center;
     background-color: white;
     z-index: 10;
-  `
+  `;
+
   const changeActiveNav = (index) => {
     setActiveNav(index)
-  }
-  const navSections = ['GALLERY', 'HIGHLIGHTS', 'DESCRIPTION', 'DETAILS', 'STORY', 'COMPLETE THE LOOK', 'REVIEWS']
+  };
 
-  const link = ['#gallery', '#highlights', '#description', '#details', '#story', '#completeLook', '#reviews']
+  const navSections = ['GALLERY', 'HIGHLIGHTS', 'DESCRIPTION', 'DETAILS', 'STORY', 'COMPLETE THE LOOK', 'REVIEWS'];
+
+  const link = ['#gallery', '#highlights', '#description', '#details', '#story', '#completeLook', '#reviews'];
 
   return (
     <NavBarCSS id='navbar'>

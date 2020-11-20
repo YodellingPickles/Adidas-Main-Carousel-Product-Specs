@@ -9,7 +9,8 @@ const Recommendations = ({ productRecs }) => {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  `
+  `;
+
   return (
     <RecSection>
       {productRecs.map((item, index) => <RecommendationsItems item={item} index={index}/>)}
@@ -46,4 +47,4 @@ const RecommendationsItems = ({ item }) => {
   )
 }
 
-export default Recommendations
+export default Recommendations;
