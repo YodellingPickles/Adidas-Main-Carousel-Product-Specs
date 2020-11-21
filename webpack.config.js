@@ -16,6 +16,10 @@ const DIST_DIR = path.join(__dirname, './client/dist');
               presets: ['@babel/preset-react', '@babel/preset-env']
             }
           }
+        },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
         }
       ]
     },

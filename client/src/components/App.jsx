@@ -9,6 +9,7 @@ import Colors from './MainSlider/Colors.jsx';
 import sliderNav from '../../../img/sliderNav.js';
 import NavBar from './Carousel/NavBar.jsx';
 import ProductSpecs from './Carousel/ProductSpecs.jsx';
+import '../../dist/style.css'
 
 const App = () => {
   const getWidth = () => window.innerWidth;
