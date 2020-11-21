@@ -1,48 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useRef } from 'react'
 import styled from 'styled-components';
 
 const NavBar = (props) => {
   const [activeNav, setActiveNav] = useState(0);
+  const [isSticky, setSticky] = useState(false);
+  const stickyRef = useRef(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll);
     return function cleanup() {
-      console.log('clean-up!')
-      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', () => onScroll);
     };
-  });
+  }, []);
 
-  const onScroll = (e) => {
-    const navbar = document.getElementById("navbar");
-    const sticky = navbar.offsetTop;
+  const onScroll = useMemo(() => {
+    return (e) => {
+      if (stickyRef.current) {
+        setSticky(stickyRef.current.getBoundingClientRect().top <= 0);
+      }
 
-    if (window.pageYOffset >= sticky) {
-      navbar.classList.add("sticky")
-    } else {
-      navbar.classList.remove("sticky");
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
         });
       });
-    });
 
-    if (document.getElementById("completeLook").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
-      setActiveNav(5);
-    } else if (document.getElementById("details").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
-      setActiveNav(3);
-    } else if (document.getElementById("description").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
-      setActiveNav(2);
-    } else if (document.getElementById("highlights").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
-      setActiveNav(1);
-    } else if (document.getElementById("gallery").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
-      setActiveNav(0);
+      if (document.getElementById("completeLook").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+        setActiveNav(5);
+      } else if (document.getElementById("details").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+        setActiveNav(3);
+      } else if (document.getElementById("description").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+        setActiveNav(2);
+      } else if (document.getElementById("highlights").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+        setActiveNav(1);
+      } else if (document.getElementById("gallery").getBoundingClientRect().top + window.pageYOffset - 200 < window.pageYOffset) {
+        setActiveNav(0);
+      }
     }
-  }
+  },[activeNav])
 
   const NavBarCSS = styled.div`
     border-top: 2px solid rgb(238,240,241);
@@ -50,7 +48,6 @@ const NavBar = (props) => {
     display: flex;
     justify-content: center;
     background-color: white;
-    z-index: 10;
   `;
 
   const changeActiveNav = (index) => {
@@ -59,14 +56,16 @@ const NavBar = (props) => {
 
   const navSections = ['GALLERY', 'HIGHLIGHTS', 'DESCRIPTION', 'DETAILS', 'STORY', 'COMPLETE THE LOOK', 'REVIEWS'];
 
-  const link = ['#gallery', '#highlights', '#description', '#details', '#story', '#completeLook', '#reviews'];
+  const link = ['#gallery', '#highlights', '#description', '#details', '#details', '#completeLook', '#reviews'];
 
   return (
+    <div className={`${isSticky ? ' sticky' : ''}`} ref={stickyRef}>
     <NavBarCSS id='navbar'>
       {navSections.map((sections, index) => (
         <NavBarItem sections={sections} index={index} isActive={activeNav === index} link={link[index]} changeActiveNav={changeActiveNav}/>
       ))}
     </NavBarCSS>
+    </div>
   )
 }
 

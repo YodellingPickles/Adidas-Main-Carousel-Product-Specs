@@ -128,7 +128,6 @@ const SliderCSS = styled.div`
   height: 85vh;
   width: 100vw;
   margin: 0 auto;
-  overflow: hidden;
   margin-bottom: 20px;
 `;
 
