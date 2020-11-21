@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import SliderContent from './MainSlider/SliderContent.jsx';
@@ -12,7 +12,6 @@ import ProductSpecs from './Carousel/ProductSpecs.jsx';
 import '../../dist/style.css'
 
 const App = () => {
-  const getWidth = () => window.innerWidth;
   const [translate, setTranslate] = useState(0);
   const [transition, setTransition] = useState(.8);
   const [displaySet, setDisplay] = useState([]);
@@ -21,6 +20,12 @@ const App = () => {
   const [activeColorIndex, setColorIndex] = useState(0);
   const [productRecs, setRecs] = useState([]);
   const [productCarousel, setCarousel] = useState([]);
+  const widthRef = useRef(false)
+  const getWidth = () => {
+    if (widthRef.current) {
+      return widthRef.current.getBoundingClientRect().width
+    }
+  }
 
   const getShoeFromDb = (colorIWantToRender) => {
     axios.get('/api/products/shoes')
@@ -87,7 +92,7 @@ const App = () => {
 
   return (
     <div>
-      <SliderCSS>
+      <SliderCSS ref={widthRef}>
         <ImageNav src={sliderNav}></ImageNav>
         <SliderContent
           translate={translate}
@@ -125,9 +130,9 @@ const ImageNav = styled.img`
 
 const SliderCSS = styled.div`
   position: relative;
-  height: 85vh;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   margin-bottom: 20px;
+  overflow: hidden;
 `;
 

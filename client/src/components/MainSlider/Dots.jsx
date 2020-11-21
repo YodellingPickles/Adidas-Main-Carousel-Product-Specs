@@ -22,12 +22,12 @@ const Dot = ({ img, active }) => {
 
 const Dots = ({ slides, activeIndex }) => {
   const DotsCss = styled.div`
-  position: absolute;
-  top: 84%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `;
 
   return (
