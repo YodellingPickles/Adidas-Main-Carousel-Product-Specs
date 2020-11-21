@@ -9,6 +9,7 @@ import Colors from './MainSlider/Colors.jsx';
 import sliderNav from '../../../img/sliderNav.js';
 import NavBar from './Carousel/NavBar.jsx';
 import ProductSpecs from './Carousel/ProductSpecs.jsx';
+import '../../dist/style.css'
 
 const App = () => {
   const getWidth = () => window.innerWidth;
@@ -22,7 +23,7 @@ const App = () => {
   const [productCarousel, setCarousel] = useState([]);
 
   const getShoeFromDb = (colorIWantToRender) => {
-    axios.get('/api/shoes')
+    axios.get('/api/products/shoes')
       .then(result => {
         const arrOfColors = Object.keys(result.data.colorSet);
         const colorRender = colorIWantToRender || arrOfColors[0];
@@ -35,7 +36,7 @@ const App = () => {
   }
 
   const getRecItemsFromDb = () => {
-    axios.get('/api/recItems')
+    axios.get('/api/products/recItems')
       .then(result => {
         setRecs(result.data)
       })
@@ -43,7 +44,7 @@ const App = () => {
   }
 
   const getCarouselItem = () => {
-    axios.get('/api/CarouselItem')
+    axios.get('/api/products/CarouselItem')
       .then(result => {
         setCarousel(result.data)
       })
