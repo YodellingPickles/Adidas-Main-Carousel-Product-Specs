@@ -78,22 +78,17 @@ const ProductSpecs = ({ specImg, productRecs, productCarousel }) => {
           <CarouselArrows direction={'right'} handleClick={nextCarousel} />
           <Bars pages={Array(productCarousel.length/4).fill(0)} carouselIndex={carouselIndex}/>
       </CarouselDiv>
-      <Test>
-      </Test>
     </CarouselCSS>
   )
 }
 
 export default ProductSpecs;
 
-const Test = styled.div`
-  height: 80vh;
-`;
 const CarouselCSS = styled.div`
   position: relative;
-  width: 44%;
+  width: 55%;
   height: auto;
-  left: 28%;
+  left: 22%;
   margin-top: 45px;
   display: flex;
   flex-wrap: wrap;
@@ -126,6 +121,7 @@ const Section = styled.div`
   width: 47%;
   height: 27vh;
   position: relative;
+  margin-bottom: 40px;
 `;
 
 const FullWidthSection = styled.div`

@@ -50,6 +50,17 @@ const NavBar = (props) => {
     background-color: white;
   `;
 
+  const Sticky = styled.div`
+    position: sticky;
+    align-self: flex-start;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  `;
+
+  const NonSticky = styled.div`
+  `;
+
   const changeActiveNav = (index) => {
     setActiveNav(index)
   };
@@ -58,8 +69,10 @@ const NavBar = (props) => {
 
   const link = ['#gallery', '#highlights', '#description', '#details', '#details', '#completeLook', '#reviews'];
 
+  const MySticky = isSticky ? Sticky : NonSticky
+
   return (
-    <div className={`${isSticky ? ' sticky' : ''}`} ref={stickyRef}>
+    <div ref={stickyRef} className={isSticky ? 'sticky' : ''}>
     <NavBarCSS id='navbar'>
       {navSections.map((sections, index) => (
         <NavBarItem sections={sections} index={index} isActive={activeNav === index} link={link[index]} changeActiveNav={changeActiveNav}/>
