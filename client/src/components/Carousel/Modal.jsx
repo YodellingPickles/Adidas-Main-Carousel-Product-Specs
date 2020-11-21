@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
 
@@ -6,12 +6,8 @@ const Modal = ({ isOpen, onClose, item }) => {
   if(!isOpen) return null;
   const [hoverDetail, setHoverDetail] = useState(false);
   const [isClicked, setClick] = useState(null);
-  const [shouldAnimate, setAnimate] = useState(true);
-  useEffect(() => {
-    if(isClicked) {
-      setAnimate(false);
-    }
-  })
+  const shouldAnimate = useRef(true);
+
   const Overlay = styled.div`
     position: fixed;
     top: 0;
@@ -20,8 +16,8 @@ const Modal = ({ isOpen, onClose, item }) => {
     bottom: 0;
     background-color: rgba(0, 0, 0, .7);
     z-index: 1000;
-    ${shouldAnimate ? 'animation-name: modalFade' : null};
-    ${shouldAnimate ? 'animation-duration: .6s' : null};
+    ${shouldAnimate.current ? 'animation-name: modalFade' : null};
+    ${shouldAnimate.current ? 'animation-duration: .6s' : null};
   `;
 
   const Modal = styled.div`
@@ -32,8 +28,8 @@ const Modal = ({ isOpen, onClose, item }) => {
     background-color: #FFF;
     z-index: 1000;
     border: 1.7px solid black;
-    ${shouldAnimate ? 'animation-name: modalFade' : null };
-    ${shouldAnimate ? 'animation-duration: .6s' : null};
+    ${shouldAnimate.current ? 'animation-name: modalFade' : null };
+    ${shouldAnimate.current ? 'animation-duration: .6s' : null};
   `;
 
   const ModalDescription = styled.div`
@@ -93,10 +89,14 @@ const Modal = ({ isOpen, onClose, item }) => {
     }
   };
 
+  if (isOpen) {
+    shouldAnimate.current = false;
+  }
+
   return ReactDom.createPortal(
     <>
       <Overlay>
-        <Modal id='modalOverlay'>
+        <Modal>
           <Exit onClick={onClose}>&#x2715;</Exit>
           <img src={item.url}></img>
           <ModalDescription>
