@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const Modal = ({ isOpen, onClose, item }) => {
   if(!isOpen) return null;
-  const [hoverDetail, setHoverDetail] = useState(false);
   const [isClicked, setClick] = useState(null);
   const shouldAnimate = useRef(true);
 

@@ -82,6 +82,11 @@ const App = () => {
     }
   };
 
+  const changeSlide = (index) => {
+      setTranslate(index * getWidth());
+      setIndex(index);
+  };
+
   const changeColors = (index) => {
     const arrOfColors = Object.keys(colorSet);
     setColorIndex(index);
@@ -100,13 +105,13 @@ const App = () => {
           width={getWidth() * displaySet.length}
           id='gallery'
         >
-          {displaySet.map((image) => (
-            <Slide image={image} />
+          {displaySet.map((image, index) => (
+            <Slide image={image} key={image.id} index={index}/>
           ))}
         </SliderContent>
         <Arrow direction='left' handleClick={prevSlide}/>
         <Arrow direction='right' handleClick={nextSlide}/>
-        <Dots slides={displaySet} activeIndex={activeIndex}/>
+        <Dots slides={displaySet} activeIndex={activeIndex} changeSlide={changeSlide}/>
         {<div class='colorBar'>
           <Colors colorSet={colorSet} activeColorIndex={activeColorIndex} changeColors={changeColors}/>
         </div>}

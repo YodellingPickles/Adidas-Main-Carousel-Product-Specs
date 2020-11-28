@@ -8,8 +8,8 @@ const NavBar = (props) => {
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
-    return function cleanup() {
-      window.removeEventListener('scroll', () => onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -75,7 +75,7 @@ const NavBar = (props) => {
     <div ref={stickyRef} className={isSticky ? 'sticky' : ''}>
     <NavBarCSS id='navbar'>
       {navSections.map((sections, index) => (
-        <NavBarItem sections={sections} index={index} isActive={activeNav === index} link={link[index]} changeActiveNav={changeActiveNav}/>
+        <NavBarItem sections={sections} index={index} isActive={activeNav === index} link={link[index]} changeActiveNav={changeActiveNav} key={index}/>
       ))}
     </NavBarCSS>
     </div>
