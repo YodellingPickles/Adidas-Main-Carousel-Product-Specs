@@ -20,7 +20,7 @@ const Bar = ({ active }) => {
 const Bars = ({ pages, carouselIndex }) => {
   const BarsCSS = styled.div`
     position: absolute;
-    top: 85%;
+    bottom: 0%;
     width: 100%;
     display: flex;
     align-items: center;
