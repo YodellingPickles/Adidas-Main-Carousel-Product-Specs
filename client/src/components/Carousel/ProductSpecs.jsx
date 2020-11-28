@@ -86,9 +86,9 @@ export default ProductSpecs;
 
 const CarouselCSS = styled.div`
   position: relative;
-  width: 44%;
+  width: 60%;
   height: auto;
-  left: 28%;
+  left: 20%;
   margin-top: 45px;
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +134,7 @@ const FullWidthSection = styled.div`
 
   const CarouselDiv = styled.div`
   width: 100%;
-  height: 30vh;
+  height: 33vh;
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
