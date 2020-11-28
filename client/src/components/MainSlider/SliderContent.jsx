@@ -9,7 +9,6 @@ const SliderContent = styled.div`
   background-color: rgb(236,238,240);
   display: flex;
   overflow: hidden;
-  cursor: zoom-in;
 `
 
 export default SliderContent

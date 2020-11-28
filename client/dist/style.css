@@ -61,7 +61,13 @@ a {
   scroll-margin-top: 120px;
 }
 
-
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
 
 @keyframes modalFade {
   from {opacity: 0;}

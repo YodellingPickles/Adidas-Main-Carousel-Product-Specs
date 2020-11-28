@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Dot = ({ img, active }) => {
+const Dot = ({ img, active, index, changeSlide }) => {
   const DotCss = styled.div`
-    padding: 15px;
+    padding: 14px;
     margin-right: 10px;
     border: 1px solid black;
     cursor: pointer;
@@ -15,15 +15,14 @@ const Dot = ({ img, active }) => {
   `;
 
   return (
-    <DotCss>
-    </DotCss>
+    <DotCss onClick={() => changeSlide(index)}/>
   )
 }
 
-const Dots = ({ slides, activeIndex }) => {
+const Dots = ({ slides, activeIndex, changeSlide }) => {
   const DotsCss = styled.div`
     position: absolute;
-    top: 80%;
+    top: 82%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -33,7 +32,7 @@ const Dots = ({ slides, activeIndex }) => {
   return (
     <DotsCss>
       {slides.map((slide, i) => (
-        <Dot key={slide} active={activeIndex === i} img={slide.url}/>
+        <Dot key={slide} active={activeIndex === i} img={slide.url} index={i} changeSlide={changeSlide}/>
         ))}
     </DotsCss>
   )

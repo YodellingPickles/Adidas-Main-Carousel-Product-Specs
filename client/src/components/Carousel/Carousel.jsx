@@ -15,10 +15,10 @@ const Carousel = ({ productCarousel, width, translate, transition }) => {
     display: flex;
     justify-content: space-around;
   `;
-
+  
   return (
     <CarouselItemSection>
-      {productCarousel.map((item, index) => <CarouselItems item={item} index={index}/>)}
+      {productCarousel.map((item, index) => <CarouselItems item={item} index={index} key={index}/>)}
     </CarouselItemSection>
   )
 }

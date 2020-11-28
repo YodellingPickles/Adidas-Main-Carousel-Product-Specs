@@ -34,13 +34,12 @@ const ColorButtons = ({ colorUrl, index, activeColorIndex, changeColors }) => {
   const ColorCss = styled.div`
     padding: 30px;
     margin-right: 10px;
-    border: 1px solid black;
     cursor: pointer;
     background-image: url('${colorUrl}');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-bottom: ${activeColorIndex ? '3px solid black' : '1px solid black'};
+    border-bottom: ${activeColorIndex ? '3px solid black' : null};
   `;
 
   return (

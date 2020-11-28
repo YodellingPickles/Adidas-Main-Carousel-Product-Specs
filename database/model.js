@@ -1,7 +1,7 @@
 const db = require('./index.js');
 
 const getDefaultSet = (callback) => {
-  const string = 'SELECT url, color FROM Shoes WHERE productId = ?'
+  const string = 'SELECT id, url, color FROM Shoes WHERE productId = ?'
   const arg = ['FV1733']
   db.query(string, arg,(err, data) => {
     if (err) {
