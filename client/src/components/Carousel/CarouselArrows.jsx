@@ -7,7 +7,7 @@ const CarouselArrows = ({ direction, handleClick }) => {
   const CarouselArrowDiv = styled.div`
     display: flex;
     position: absolute;
-    top: 50%;
+    top: 40%;
     ${direction === 'right' ? `right: 0` : `left: 0`};
     height: 25px;
     width: 25px;
