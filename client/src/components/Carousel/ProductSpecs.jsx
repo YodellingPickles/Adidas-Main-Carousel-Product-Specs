@@ -134,7 +134,7 @@ const FullWidthSection = styled.div`
 
   const CarouselDiv = styled.div`
   width: 100%;
-  height: 33vh;
+  height: 430px;
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;

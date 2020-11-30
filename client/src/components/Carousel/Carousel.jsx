@@ -15,7 +15,7 @@ const Carousel = ({ productCarousel, width, translate, transition }) => {
     display: flex;
     justify-content: space-around;
   `;
-  
+
   return (
     <CarouselItemSection>
       {productCarousel.map((item, index) => <CarouselItems item={item} index={index} key={index}/>)}
@@ -26,8 +26,7 @@ const Carousel = ({ productCarousel, width, translate, transition }) => {
 const CarouselItems = ({ item, index }) => {
   const [favorite, setFavorite] = useState(false)
   const CarouselItems = styled.div`
-    width: 7.8%;
-    height: 22vh;
+    width: 8%;
     font-family: AdihausDIN;
     background-color: white;
     font-size: 12px;
