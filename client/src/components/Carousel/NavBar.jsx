@@ -58,9 +58,6 @@ const NavBar = (props) => {
     z-index: 10;
   `;
 
-  const NonSticky = styled.div`
-  `;
-
   const changeActiveNav = (index) => {
     setActiveNav(index)
   };
@@ -69,7 +66,6 @@ const NavBar = (props) => {
 
   const link = ['#gallery', '#highlights', '#description', '#details', '#details', '#completeLook', '#reviews'];
 
-  const MySticky = isSticky ? Sticky : NonSticky
 
   return (
     <div ref={stickyRef} className={isSticky ? 'sticky' : ''}>
